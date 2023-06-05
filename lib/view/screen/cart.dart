@@ -52,7 +52,7 @@ class Cart extends StatelessWidget {
                               name: "${cartController.data[index].itemsName}",
                               image: "${cartController.data[index].itemsImage}",
                               price:
-                                  "${cartController.data[index].itemsPrice} \$",
+                                  "${cartController.data[index].itemsprice} \$",
                               count:
                                   "${cartController.data[index].countitems}"),
                         )

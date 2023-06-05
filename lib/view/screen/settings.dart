@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/core/constant/color.dart';
 import 'package:ecommerce_app/core/constant/imgaeasset.dart';
+import 'package:ecommerce_app/core/constant/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -46,7 +47,9 @@ class Settings extends StatelessWidget {
                   title: Text("Disable Notificatios"),
                 ),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(AppRoute.addressview);
+                  },
                   trailing: Icon(Icons.location_on_outlined),
                   title: Text("Address"),
                 ),

@@ -29,6 +29,7 @@ class AppLink {
   static const String homepage = "$server/home.php";
 // items
   static const String items = "$server/items/items.php";
+  static const String searchitems = "$server/items/search.php";
 
 // Favorite
 
@@ -44,4 +45,10 @@ class AppLink {
   static const String cartDelete = "$server/cart/delete.php";
   static const String cartView = "$server/cart/view.php";
   static const String cartgetCountitems = "$server/cart/getcountitems.php";
+
+  // address
+  static const String addressView = "$server/address/view.php";
+  static const String addressAdd = "$server/address/add.php";
+  static const String addressDelete = "$server/address/delete.php";
+  static const String addressEdit = "$server/address/edit.php";
 }
