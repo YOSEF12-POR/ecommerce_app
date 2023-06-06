@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 
 class CartController extends GetxController {
   CartData cartData = CartData(Get.find());
-
+  TextEditingController? controllercoupon;
   List<CartModel> data = [];
   double priceorders = 0.0;
   int totalcountitems = 0;
@@ -123,6 +123,7 @@ class CartController extends GetxController {
 
   @override
   void onInit() {
+    controllercoupon = TextEditingController();
     view();
     super.onInit();
   }
