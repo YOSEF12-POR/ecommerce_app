@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/data/datasource/remote/cart_data.dart';
 import 'package:ecommerce_app/data/model/cartmodel.dart';
+import 'package:ecommerce_app/data/model/couponmodel.dart';
 import '/core/class/statusrequest.dart';
 import '/core/functions/handingdatacontroller.dart';
 import '/core/services/services.dart';
@@ -13,7 +14,9 @@ class CartController extends GetxController {
   List<CartModel> data = [];
   double priceorders = 0.0;
   int totalcountitems = 0;
-
+  CouponModel? couponModel;
+  int? discountcoupon = 0;
+  String? couponname;
   late StatusRequest statusRequest;
 
   MyServices myServices = Get.find();
@@ -119,6 +122,34 @@ class CartController extends GetxController {
       }
     }
     update();
+  }
+
+  checkCoupon() async {
+    statusRequest = StatusRequest.loading;
+    update();
+
+    var response = await cartData.checkCoupon(controllercoupon!.text);
+    print("=============================== Controller $response ");
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      // Start backend
+      if (response['status'] == "success") {
+        Map<String, dynamic> datacoupon = response['data'];
+        couponModel = CouponModel.fromJson(datacoupon);
+        discountcoupon = int.parse(couponModel!.couponDiscount!);
+        couponname = couponModel!.couponName!;
+      } else {
+        // statusRequest = StatusRequest.failure;
+        discountcoupon = 0;
+        couponname = null;
+      }
+      // End
+    }
+    update();
+  }
+
+  getTotalPrice() {
+    return (priceorders - priceorders * discountcoupon! / 100);
   }
 
   @override
