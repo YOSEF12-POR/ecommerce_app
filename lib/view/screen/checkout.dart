@@ -14,6 +14,15 @@ class Checkout extends StatelessWidget {
       appBar: AppBar(
         title: const Text('CheckOut'),
       ),
+      bottomNavigationBar: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: MaterialButton(
+            color: AppColor.secondColor,
+            textColor: Colors.white,
+            onPressed: () {},
+            child: const Text("Checkout",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+          )),
       body: Container(
         padding: EdgeInsets.all(10),
         child: Container(
@@ -72,6 +81,9 @@ class Checkout extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     fontSize: 16),
               ),
+              SizedBox(
+                height: 10,
+              ),
               Row(
                 children: [
                   Container(
@@ -93,7 +105,6 @@ class Checkout extends StatelessWidget {
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
-
                           ),
                         )
                       ],
@@ -126,7 +137,36 @@ class Checkout extends StatelessWidget {
                     ),
                   ),
                 ],
-              )
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                "Shipping Address",
+                style: TextStyle(
+                    color: AppColor.secondColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                child: const ListTile(
+                  title: Text("Home"),
+                  subtitle: Text("FFFFksdfjsdkljf sdf s"),
+                ),
+              ),
+              Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                child: ListTile(
+                  title: Text("Home"),
+                  subtitle: Text("FFFFksdfjsdkljf sdf s"),
+                ),
+              ),
             ],
           ),
         ),
