@@ -14,6 +14,7 @@ class Cart extends StatelessWidget {
   Widget build(BuildContext context) {
     CartController cartController = Get.put(CartController());
     return Scaffold(
+      appBar: AppBar(title: const Text('My Cart')),
       bottomNavigationBar: GetBuilder<CartController>(
         builder: ((controller) => BottomNavgationBarCart(
               controllercoupon: controller.controllercoupon!,
@@ -32,9 +33,9 @@ class Cart extends StatelessWidget {
               statusRequest: controller.statusRequest,
               widget: ListView(
                 children: [
-                  TopAppbarCart(
-                    title: 'My Cart',
-                  ),
+                  // TopAppbarCart(
+                  //   title: 'My Cart',
+                  // ),
                   SizedBox(height: 10),
                   TopCardCart(
                       message:

@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/view/address/add.dart';
 import 'package:ecommerce_app/view/address/view.dart';
 import 'package:ecommerce_app/view/screen/cart.dart';
+import 'package:ecommerce_app/view/screen/checkout.dart';
 
 import '/core/constant/routes.dart';
 import '/core/middleware/mymiddleware.dart';
@@ -51,4 +52,5 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.addressadd, page: () => const AddressAdd()),
   GetPage(
       name: AppRoute.addressaddetails, page: () => const AddressAddDetails()),
+  GetPage(name: AppRoute.checkout, page: () => const Checkout()),
 ];

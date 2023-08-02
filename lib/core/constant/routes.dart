@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/view/screen/checkout.dart';
+
 class AppRoute {
   static const String login = "/login";
   static const String onBoarding = "/onboarding";
@@ -20,4 +22,6 @@ class AppRoute {
   static const String addressview = "/addressview";
   static const String addressadd = "/addressadd";
   static const String addressaddetails = "/addressaddetails";
+  // Checkout
+  static const String checkout = "/checkout";
 }
