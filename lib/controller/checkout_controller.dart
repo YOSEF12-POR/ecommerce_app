@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/constant/routes.dart';
 import 'package:ecommerce_app/data/datasource/remote/checkout_data.dart';
 import 'package:get/get.dart';
 import '../core/class/statusrequest.dart';
@@ -16,7 +17,7 @@ class CheckoutController extends GetxController {
 
   String? paymentMethod;
   String? deliveryType;
-  String? addressid;
+  String? addressid = "0";
   late String priceorders;
   late String couponid;
 
@@ -61,6 +62,12 @@ class CheckoutController extends GetxController {
   }
 
   Checkout() async {
+    if (paymentMethod == null)
+      return Get.snackbar('Error', 'Choose PaymentMethod  ');
+    if (deliveryType == null)
+      return Get.snackbar('Error', 'Choose DeliveryType ');
+
+    update();
     statusRequest = StatusRequest.loading;
     Map data = {
       'usersid': myServices.sharedPreferences.getString("id"),
@@ -80,9 +87,11 @@ class CheckoutController extends GetxController {
     if (StatusRequest.success == statusRequest) {
       // Start backend
       if (response['status'] == "success") {
-        print('success');
+        Get.offAllNamed(AppRoute.homepage);
+        Get.snackbar('success', 'تم اضافة طلبك بنجاح ');
       } else {
-        statusRequest = StatusRequest.failure;
+        statusRequest = StatusRequest.none;
+        Get.snackbar('Error', 'حاول مرة اخرى');
       }
       // End
     }
