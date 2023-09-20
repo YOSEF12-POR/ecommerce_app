@@ -2,8 +2,9 @@ import 'package:ecommerce_app/core/shared/custombutton.dart';
 import 'package:ecommerce_app/view/widget/auth/customtextformauth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../controller/address/adddetails_controller.dart';
-import '../../core/class/handlingdataview.dart';
+
+import '../../../controller/address/adddetails_controller.dart';
+import '../../../core/class/handlingdataview.dart';
 
 class AddressAddDetails extends StatelessWidget {
   const AddressAddDetails({Key? key}) : super(key: key);

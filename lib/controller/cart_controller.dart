@@ -74,7 +74,8 @@ class CartController extends GetxController {
     if (data.isEmpty) return Get.snackbar('تنبيه', "السلة فارغة");
     Get.toNamed(AppRoute.checkout, arguments: {
       "couponid": couponid ?? "0",
-      "priceorder": priceorders.toString()
+      "priceorder": priceorders.toString(),
+      "discountcoupon": discountcoupon.toString()
     });
   }
 
@@ -155,6 +156,7 @@ class CartController extends GetxController {
         discountcoupon = 0;
         couponname = null;
         couponid = null;
+        Get.snackbar('Error', 'قسيمة شرائية غير صالحة حاول مرة اخرى');
       }
       // End
     }

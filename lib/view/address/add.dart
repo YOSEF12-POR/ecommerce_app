@@ -9,7 +9,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import '../../core/class/handlingdataview.dart';
+import '../../../core/class/handlingdataview.dart';
 
 class AddressAdd extends StatelessWidget {
   const AddressAdd({Key? key}) : super(key: key);

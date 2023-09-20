@@ -57,4 +57,5 @@ class AppLink {
 
   // checkout
   static const String checkout = "$server/orders/checkout.php";
+  static const String pendingordres = "$server/orders/pending.php";
 }
