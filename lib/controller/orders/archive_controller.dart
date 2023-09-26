@@ -1,15 +1,12 @@
-import 'package:ecommerce_app/data/model/ordesrmodel.dart';
-import 'package:ecommerce_app/view/screen/orders/pending.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
-
 import '../../core/class/statusrequest.dart';
 import '../../core/functions/handingdatacontroller.dart';
 import '../../core/services/services.dart';
-import '../../data/datasource/remote/orders/pending_data.dart';
+import '../../data/datasource/remote/orders/archive_data.dart';
+import '../../data/model/ordesrmodel.dart';
 
-class OrdersPendingController extends GetxController {
-  OrdersPendingData ordersPendingData = OrdersPendingData(Get.find());
+class OrdersArchiveController extends GetxController {
+  OrdersArchiveData ordersArchiveData = OrdersArchiveData(Get.find());
 
   List<OrdersModel> data = [];
 
@@ -51,7 +48,7 @@ class OrdersPendingController extends GetxController {
     data.clear();
     statusRequest = StatusRequest.loading;
     update();
-    var response = await ordersPendingData
+    var response = await ordersArchiveData
         .getData(myServices.sharedPreferences.getString("id")!);
     print("=============================== Controller $response ");
     statusRequest = handlingData(response);
@@ -60,25 +57,6 @@ class OrdersPendingController extends GetxController {
       if (response['status'] == "success") {
         List listdata = response['data'];
         data.addAll(listdata.map((e) => OrdersModel.fromJson(e)));
-      } else {
-        statusRequest = StatusRequest.failure;
-      }
-      // End
-    }
-    update();
-  }
-
-  deleteOrder(String orderid) async {
-    data.clear();
-    statusRequest = StatusRequest.loading;
-    update();
-    var response = await ordersPendingData.deleteData(orderid);
-    print("=============================== Controller $response ");
-    statusRequest = handlingData(response);
-    if (StatusRequest.success == statusRequest) {
-      // Start backend
-      if (response['status'] == "success") {
-        refrehOrder();
       } else {
         statusRequest = StatusRequest.failure;
       }

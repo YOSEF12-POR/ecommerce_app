@@ -54,7 +54,7 @@ dependencies:
   firebase_messaging: ^14.1.4
   firebase_core: ^2.4.0
   firebase_core_platform_interface: 4.5.2
-
+  flutter_ringtone_player: ^3.2.0 
   # flutter_local_notifications: ^9.5.3+1
   cloud_firestore: ^4.2.0
   # Local Data Cache

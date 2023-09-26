@@ -1,7 +1,12 @@
 class AppLink {
-  static const String server = "http://10.0.0.13/ecommerce/";
+  // static const String server = "http://10.0.0.13/ecommerce/";
 
-  static const String imageststatic = "http://10.0.0.13/ecommerce/";
+  // static const String imageststatic = "http://10.0.0.13/ecommerce/";
+
+  static const String server = "https://josephshop.000webhostapp.com";
+
+  static const String imageststatic = "https://josephshop.000webhostapp.com";
+
 //========================== Image ============================
   static const String imagestCategories = "$imageststatic/upload/categories/";
   static const String imagestItems = "$imageststatic/upload/items/";
@@ -58,4 +63,10 @@ class AppLink {
   // checkout
   static const String checkout = "$server/orders/checkout.php";
   static const String pendingordres = "$server/orders/pending.php";
+  static const String ordersdetails = "$server/orders/details.php";
+  static const String ordersdelete = "$server/orders/delete.php";
+  static const String ordersarchive = "$server/orders/archive.php";
+
+  // notification
+  static const String notification = "$server/notification.php";
 }

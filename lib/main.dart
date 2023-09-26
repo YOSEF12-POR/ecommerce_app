@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'core/localization/changelocal.dart';
 
-// عدم عرض بيانات  من اوردر
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initialServices();

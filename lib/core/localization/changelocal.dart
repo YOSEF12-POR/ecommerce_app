@@ -1,6 +1,7 @@
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get_connect/http/src/request/request.dart';
 
+import '../functions/fcmconfig.dart';
 import '/core/constant/apptheme.dart';
 import '/core/services/services.dart';
 import 'package:flutter/material.dart';
@@ -44,6 +45,8 @@ class LocaleController extends GetxController {
 
   @override
   void onInit() {
+    requestPermissionNotification();
+    fcmconfig();
     requestPerLocation();
     String? sharedPrefLang = myServices.sharedPreferences.getString("lang");
     if (sharedPrefLang == "ar") {
